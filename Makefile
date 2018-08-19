@@ -1,0 +1,44 @@
+#MARKDOWN=pandoc -f markdown-auto_identifiers --smart
+#MARKDOWN=lowdown -D html-head-ids
+
+all: index.md md
+
+md:
+	ls *.md | sed 's/\.md$$/.html/' | xargs make
+
+# Convert Markdown to HTML, inserting <title> and <body>.
+.SUFFIXES: .md .html
+.md.html:
+	( \
+	echo '<!DOCTYPE html>' ; \
+	echo '<html lang="en">' ; \
+	echo '<head>' ; \
+	echo '<meta charset="utf-8">' ; \
+	grep '^# ' $< | markdown | sed 's/h1>/title>/g' ; \
+	echo '<style type="text/css">' ; \
+	echo 'body {background: #eddcc9; color: #131d28; font: 1em sans-serif; max-width: 45em; margin: auto;}' ; \
+	echo 'p {hyphens: auto; line-height: 1.5; text-align: justify;}' ; \
+	echo '</style>'; \
+	echo '</head>' ; \
+	echo '<body>' ; \
+	markdown $< ; \
+	echo '</body>' ; \
+	echo '</html>' ; \
+	) >$@
+
+# Generate index.md, which is then converted into index.html using the above rules.
+# This de-duplicates the HTML generation code.
+index.md:
+	( \
+	echo '# Index' ; \
+	echo ; \
+	grep -H '^# ' *.md \
+	| grep -v index.md \
+	| sort -r \
+	| sed 's/\(.*\)\.md:# \(.*\)/* [\2](\1.html)/' ; \
+	) >$@
+
+clean:
+	rm -f *.html index.md
+
+.PHONY: all clean md
