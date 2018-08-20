@@ -21,7 +21,7 @@ md:
 	echo '<style type="text/css">' ; \
 	echo 'body {background: #eddcc9; color: #131d28; font: 1em sans-serif; max-width: 45em; margin: auto;}' ; \
 	echo 'p {hyphens: auto; line-height: 1.5; text-align: justify;}' ; \
-	echo '</style>'; \
+	echo '</style>' ; \
 	echo '</head>' ; \
 	echo '<body>' ; \
 	markdown $< ; \
@@ -33,7 +33,12 @@ md:
 # This de-duplicates the HTML generation code.
 index.md: md
 	( \
-	echo '# Index' ; \
+	echo '# The Testimony of Jesus' ; \
+	echo ; \
+	echo '"I am your fellow slave and a fellow slave of your brothers who have the btestimony of Jesus.' ; \
+	echo 'Worship God.' ; \
+	echo 'For the testimony of Jesus is the spirit of the prophecy."' ; \
+	echo '(Revelation 19:10)' ; \
 	echo ; \
 	grep -H '^# ' *.md \
 	| grep -v index.md \
