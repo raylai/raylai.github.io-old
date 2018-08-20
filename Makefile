@@ -1,10 +1,13 @@
 #MARKDOWN=pandoc -f markdown-auto_identifiers --smart
 #MARKDOWN=lowdown -D html-head-ids
 
-all: index.md md
+all: index.md index.html
 
 md:
-	ls *.md | sed 's/\.md$$/.html/' | xargs make
+	ls *.md \
+	| grep -vx index.md \
+	| sed 's/\.md$$/.html/' \
+	| xargs make
 
 # Convert Markdown to HTML, inserting <title> and <body>.
 .SUFFIXES: .md .html
@@ -28,7 +31,7 @@ md:
 
 # Generate index.md, which is then converted into index.html using the above rules.
 # This de-duplicates the HTML generation code.
-index.md:
+index.md: md
 	( \
 	echo '# Index' ; \
 	echo ; \
