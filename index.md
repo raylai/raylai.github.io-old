@@ -1,6 +1,6 @@
 # The Testimony of Jesus
 
-"I am your fellow slave and a fellow slave of your brothers who have the btestimony of Jesus.
+"I am your fellow slave and a fellow slave of your brothers who have the testimony of Jesus.
 Worship God.
 For the testimony of Jesus is the spirit of the prophecy."
 (Revelation 19:10)
