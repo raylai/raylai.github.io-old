@@ -35,7 +35,7 @@ index.md: md
 	( \
 	echo '# The Testimony of Jesus' ; \
 	echo ; \
-	echo '"I am your fellow slave and a fellow slave of your brothers who have the btestimony of Jesus.' ; \
+	echo '"I am your fellow slave and a fellow slave of your brothers who have the testimony of Jesus.' ; \
 	echo 'Worship God.' ; \
 	echo 'For the testimony of Jesus is the spirit of the prophecy."' ; \
 	echo '(Revelation 19:10)' ; \
