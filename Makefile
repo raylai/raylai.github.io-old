@@ -19,8 +19,8 @@ md:
 	echo '<meta charset="utf-8">' ; \
 	grep '^# ' $< | markdown | sed 's/h1>/title>/g' ; \
 	echo '<style type="text/css">' ; \
-	echo 'body, a:link, a:visited, a:hover, a:active {color: #eddcc9;}' ; \
-	echo 'body {background: #131d28; font: 1em sans-serif; max-width: 45em; margin: auto;}' ; \
+	echo 'body, a:link, a:visited, a:hover, a:active {color: #131d28;}' ; \
+	echo 'body {background: #eddcc9; font: 1em sans-serif; max-width: 45em; margin: auto;}' ; \
 	echo 'p {hyphens: auto; line-height: 1.5; text-align: justify;}' ; \
 	echo '</style>' ; \
 	echo '</head>' ; \
